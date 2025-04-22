@@ -53,6 +53,25 @@
       aside .list-unstyled a:focus {
         background-color: var(--bs-secondary-bg);
       }
+
+      aside .offcanvas-md::-webkit-scrollbar {
+        width: 4px;
+      }
+
+      aside .offcanvas-md::-webkit-scrollbar-track {
+        background: var(--bs-dark-bg-subtle);
+        border-radius: 999px;
+      }
+
+      aside .offcanvas-md::-webkit-scrollbar-thumb {
+        background: var(--bs-dark-border-subtle);
+        border-radius: 999px;
+      }
+
+      aside .offcanvas-md::-webkit-scrollbar-thumb:hover,
+      aside .offcanvas-md::-webkit-scrollbar-thumb:active {
+        background: #8b8b8b;
+      }
     </style>
   </head>
   <body class="d-flex vh-100">
@@ -185,6 +204,42 @@
                     <li><a href="#" class="d-inline-flex text-decoration-none rounded">订单列表</a></li>
                     <li><a href="#" class="d-inline-flex text-decoration-none rounded">售后管理</a></li>
                     <li><a href="#" class="d-inline-flex text-decoration-none rounded">用户投诉</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a role="button" tabindex="0" class="d-inline-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#system-collapse" aria-expanded="true">
+                  <i class="bi bi-gear-fill"></i> 系统管理
+                </a>
+                <div class="collapse show" id="system-collapse">
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">管理员帐号</a></li>
+                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">校色设置</a></li>
+                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">菜单设置</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a role="button" tabindex="0" class="d-inline-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#system-collapse" aria-expanded="true">
+                  <i class="bi bi-gear-fill"></i> 系统管理
+                </a>
+                <div class="collapse show" id="system-collapse">
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">管理员帐号</a></li>
+                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">校色设置</a></li>
+                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">菜单设置</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a role="button" tabindex="0" class="d-inline-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#system-collapse" aria-expanded="true">
+                  <i class="bi bi-gear-fill"></i> 系统管理
+                </a>
+                <div class="collapse show" id="system-collapse">
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">管理员帐号</a></li>
+                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">校色设置</a></li>
+                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">菜单设置</a></li>
                   </ul>
                 </div>
               </li>
