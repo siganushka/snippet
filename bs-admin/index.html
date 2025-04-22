@@ -148,7 +148,7 @@
     </nav>
 
     <div class="d-flex flex-grow-1" style="padding-top: 3.5rem">
-      <aside class="bg-dark-subtle shadow">
+      <aside class="bg-dark-subtle position-relative shadow">
         <div class="offcanvas-md offcanvas-start h-100 overflow-hidden overflow-y-auto" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel" style="width: 240px">
           <div class="offcanvas-body d-md-flex flex-column p-2">
             <ul class="list-unstyled">
@@ -220,42 +220,6 @@
                 </div>
               </li>
               <li>
-                <a role="button" tabindex="0" class="d-inline-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#system-collapse" aria-expanded="true">
-                  <i class="bi bi-gear-fill"></i> 系统管理
-                </a>
-                <div class="collapse show" id="system-collapse">
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">管理员帐号</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">校色设置</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">菜单设置</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <a role="button" tabindex="0" class="d-inline-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#system-collapse" aria-expanded="true">
-                  <i class="bi bi-gear-fill"></i> 系统管理
-                </a>
-                <div class="collapse show" id="system-collapse">
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">管理员帐号</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">校色设置</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">菜单设置</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <a role="button" tabindex="0" class="d-inline-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#system-collapse" aria-expanded="true">
-                  <i class="bi bi-gear-fill"></i> 系统管理
-                </a>
-                <div class="collapse show" id="system-collapse">
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">管理员帐号</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">校色设置</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">菜单设置</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li>
                 <a href="#" class="d-inline-flex align-items-center text-decoration-none rounded">
                   <i class="bi bi-question-circle-fill"></i> 关于我们
                 </a>
@@ -263,6 +227,10 @@
             </ul>
           </div>
         </div>
+
+        <button tabindex="0" class="btn btn-sm rounded-0 rounded-start px-0 py-2 position-absolute top-50 end-0 translate-middle-y" style="font-size: 12px;background-color: var(--bs-dark-border-subtle);">
+          <i class="bi bi-chevron-compact-left"></i>
+        </button>
       </aside>
 
       <main class="flex-grow-1 overflow-hidden overflow-y-auto p-3">
