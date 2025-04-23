@@ -24,10 +24,22 @@
           "Noto Color Emoji";
       }
 
+      aside .btn {
+        --bs-btn-color: var(--bs-dark-text-emphasis);
+        --bs-btn-bg: var(--bs-dark-border-subtle);
+        --bs-btn-hover-bg: var(--bs-dark-border-subtle);
+        --bs-btn-active-bg: var(--bs-dark-border-subtle);
+        left: calc(100% - 2px);
+        transition: opacity .35s ease-in-out;
+      }
+
+      aside:hover .btn {
+        opacity: 1 !important;
+      }
+
       aside .list-unstyled a {
         color: var(--bs-body-color);
-        width: 100%;
-        padding: .5rem 1rem .5rem 2.5rem;
+        padding: .5rem 1rem .5rem 2.75rem;
         position: relative;
       }
 
@@ -37,7 +49,7 @@
       }
 
       aside .list-unstyled a[role=button]::before {
-        font-size: 12px;
+        font-size: .875rem;
         content: "\F285";
         font-family: bootstrap-icons;
         transition: transform .35s ease;
@@ -58,19 +70,14 @@
         width: 4px;
       }
 
-      aside .offcanvas-md::-webkit-scrollbar-track {
-        background: var(--bs-dark-bg-subtle);
-        border-radius: 999px;
-      }
-
+      aside .offcanvas-md::-webkit-scrollbar-track,
       aside .offcanvas-md::-webkit-scrollbar-thumb {
-        background: var(--bs-dark-border-subtle);
-        border-radius: 999px;
+        border-radius: 50rem;
+        background-color: var(--bs-dark-bg-subtle);
       }
 
-      aside .offcanvas-md::-webkit-scrollbar-thumb:hover,
-      aside .offcanvas-md::-webkit-scrollbar-thumb:active {
-        background: #8b8b8b;
+      aside:hover .offcanvas-md::-webkit-scrollbar-thumb {
+        background-color: var(--bs-dark-border-subtle);
       }
     </style>
   </head>
@@ -153,74 +160,74 @@
           <div class="offcanvas-body d-md-flex flex-column p-2">
             <ul class="list-unstyled">
               <li>
-                <a href="#" class="d-inline-flex align-items-center text-decoration-none rounded">
+                <a href="#" class="d-flex align-items-center text-decoration-none rounded">
                   <i class="bi bi-house-door-fill"></i> Dashboard
                 </a>
               </li>
               <li>
-                <a role="button" tabindex="0" class="d-inline-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#base-collapse" aria-expanded="true">
+                <a role="button" tabindex="0" class="d-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#base-collapse" aria-expanded="true">
                   <i class="bi bi-gear-wide-connected"></i> 基础设置
                 </a>
                 <div class="collapse show" id="base-collapse">
                   <ul class="list-unstyled">
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">商城横幅</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">分类设置</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">栏目管理</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">国家管理</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">商城横幅</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">分类设置</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">栏目管理</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">国家管理</a></li>
                   </ul>
                 </div>
               </li>
               <li>
-                <a role="button" tabindex="0" class="d-inline-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#news-collapse" aria-expanded="true">
+                <a role="button" tabindex="0" class="d-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#news-collapse" aria-expanded="true">
                   <i class="bi bi-speedometer"></i> 新闻管理
                 </a>
                 <div class="collapse show" id="news-collapse">
                   <ul class="list-unstyled">
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">页面管理</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">新闻列表</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">公众号列表</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">页面管理</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">新闻列表</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">公众号列表</a></li>
                   </ul>
                 </div>
               </li>
               <li>
-                <a role="button" tabindex="0" class="d-inline-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#merchant-collapse" aria-expanded="true">
+                <a role="button" tabindex="0" class="d-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#merchant-collapse" aria-expanded="true">
                   <i class="bi bi-archive-fill"></i> 商家管理
                 </a>
                 <div class="collapse show" id="merchant-collapse">
                   <ul class="list-unstyled">
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">商家列表</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">用户管理</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">采购订单</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">商品列表</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">商家列表</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">用户管理</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">采购订单</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">商品列表</a></li>
                   </ul>
                 </div>
               </li>
               <li>
-                <a role="button" tabindex="0" class="d-inline-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#order-collapse" aria-expanded="true">
+                <a role="button" tabindex="0" class="d-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#order-collapse" aria-expanded="true">
                   <i class="bi bi-cart-plus-fill"></i> 订单管理
                 </a>
                 <div class="collapse show" id="order-collapse">
                   <ul class="list-unstyled">
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">订单列表</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">售后管理</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">用户投诉</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">订单列表</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">售后管理</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">用户投诉</a></li>
                   </ul>
                 </div>
               </li>
               <li>
-                <a role="button" tabindex="0" class="d-inline-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#system-collapse" aria-expanded="true">
+                <a role="button" tabindex="0" class="d-flex align-items-center text-decoration-none rounded" data-bs-toggle="collapse" data-bs-target="#system-collapse" aria-expanded="true">
                   <i class="bi bi-gear-fill"></i> 系统管理
                 </a>
                 <div class="collapse show" id="system-collapse">
                   <ul class="list-unstyled">
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">管理员帐号</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">校色设置</a></li>
-                    <li><a href="#" class="d-inline-flex text-decoration-none rounded">菜单设置</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">管理员帐号</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">校色设置</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">菜单设置</a></li>
                   </ul>
                 </div>
               </li>
               <li>
-                <a href="#" class="d-inline-flex align-items-center text-decoration-none rounded">
+                <a href="#" class="d-flex align-items-center text-decoration-none rounded">
                   <i class="bi bi-question-circle-fill"></i> 关于我们
                 </a>
               </li>
@@ -228,8 +235,8 @@
           </div>
         </div>
 
-        <button tabindex="0" class="btn btn-sm rounded-0 rounded-start px-0 py-2 position-absolute top-50 end-0 translate-middle-y" style="font-size: 12px;background-color: var(--bs-dark-border-subtle);">
-          <i class="bi bi-chevron-compact-left"></i>
+        <button tabindex="0" class="btn btn-sm border-0 rounded-circle position-absolute top-50 translate-middle shadow-sm opacity-0">
+          <i class="bi bi-chevron-left"></i>
         </button>
       </aside>
 
