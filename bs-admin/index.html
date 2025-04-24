@@ -27,12 +27,13 @@
       /** Sidebar */
       aside .offcanvas-md {
         width: 240px !important;
+        transition: width .15s ease-in-out
       }
 
       aside .list-unstyled a {
         color: var(--bs-body-color);
         padding: .5rem .75rem;
-        position: relative;
+        white-space: nowrap !important;
       }
 
       aside .list-unstyled a + div .list-unstyled a {
@@ -44,7 +45,7 @@
         font-family: bootstrap-icons;
         margin-left: auto;
         content: "\F285";
-        transition: transform .35s ease;
+        transition: transform .15s ease;
       }
 
       aside .list-unstyled a[role=button][aria-expanded=true]::after {
@@ -62,7 +63,7 @@
         --bs-btn-bg: var(--bs-dark-border-subtle);
         --bs-btn-hover-bg: var(--bs-dark-border-subtle);
         --bs-btn-active-bg: var(--bs-dark-border-subtle);
-        transition: opacity .35s ease-in-out;
+        transition: opacity .15s ease-in-out, transform 0.15s ease-in-out;
       }
 
       aside:hover .btn {
@@ -71,7 +72,11 @@
 
       /** Sidebar collapsed */
       aside.collapsed .offcanvas-md {
-        width: auto !important;
+        width: 56px !important;
+      }
+
+      aside.collapsed .btn {
+        transform: translate(-50%, -50%) rotate(180deg) !important;
       }
  
       aside.collapsed .list-unstyled a span,
