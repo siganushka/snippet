@@ -30,17 +30,17 @@
         transition: width .15s ease-in-out
       }
 
-      aside .offcanvas-md .list-unstyled a {
+      aside .offcanvas-md ul a {
         color: var(--bs-body-color);
         padding: .5rem .75rem;
         white-space: nowrap !important;
       }
 
-      aside .offcanvas-md .list-unstyled a + div .list-unstyled a {
+      aside .offcanvas-md ul a + div ul a {
         padding-left: 2.25rem;
       }
 
-      aside .offcanvas-md .list-unstyled a[role=button]::after {
+      aside .offcanvas-md ul a[role=button]::after {
         font-size: .875rem;
         font-family: bootstrap-icons;
         margin-left: auto;
@@ -48,12 +48,12 @@
         transition: transform .15s ease;
       }
 
-      aside .offcanvas-md .list-unstyled a[role=button][aria-expanded=true]::after {
+      aside .offcanvas-md ul a[role=button][aria-expanded=true]::after {
         transform: rotate(90deg);
       }
 
-      aside .offcanvas-md .list-unstyled a:hover,
-      aside .offcanvas-md .list-unstyled a:focus {
+      aside .offcanvas-md ul a:hover,
+      aside .offcanvas-md ul a:focus {
         background-color: var(--bs-secondary-bg);
       }
 
@@ -78,9 +78,9 @@
         transform: translate(-50%, -50%) rotate(-45deg) !important;
       }
  
-      aside.pinned:not(:hover) .offcanvas-md .list-unstyled a span,
-      aside.pinned:not(:hover) .offcanvas-md .list-unstyled a + div,
-      aside.pinned:not(:hover) .offcanvas-md .list-unstyled a[role=button]::after {
+      aside.pinned:not(:hover) .offcanvas-md ul a span,
+      aside.pinned:not(:hover) .offcanvas-md ul a + div,
+      aside.pinned:not(:hover) .offcanvas-md ul a[role=button]::after {
         display: none;
       }
 
@@ -103,10 +103,10 @@
   <body class="d-flex vh-100">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top shadow">
       <div class="container-fluid">
-        <a class="navbar-brand d-none d-md-block" href="#">
+        <a href="#" class="navbar-brand d-none d-md-block">
           <i class="bi bi-bootstrap-fill"></i> Dashboard
         </a>
-        <button class="navbar-toggler d-md-none px-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler d-md-none px-2" type="button" data-bs-toggle="offcanvas" data-bs-target="aside .offcanvas-md" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle Sidebar">
           <span class="navbar-toggler-icon"></span>
         </button>
         <ul class="navbar-nav flex-row flex-wrap ms-auto">
@@ -124,46 +124,46 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end position-absolute shadow">
               <li>
-                <a class="dropdown-item d-flex align-items-center gap-2" href="#" data-bs-theme-value="light">
+                <a role="button" class="dropdown-item d-flex align-items-center gap-2" data-bs-theme-value="light">
                   <i class="bi bi-sun-fill"></i> Light
                 </a>
               </li>
               <li>
-                <a class="dropdown-item d-flex align-items-center gap-2" href="#" data-bs-theme-value="dark">
+                <a role="button" class="dropdown-item d-flex align-items-center gap-2" data-bs-theme-value="dark">
                   <i class="bi bi-moon-stars-fill"></i> Dark
                 </a>
               </li>
               <li>
-                <a class="dropdown-item d-flex align-items-center gap-2" href="#" data-bs-theme-value="auto">
+                <a role="button" class="dropdown-item d-flex align-items-center gap-2" data-bs-theme-value="auto">
                   <i class="bi bi-circle-half"></i> Auto
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link px-2 dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+            <a role="button" class="nav-link px-2 dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-expanded="false">
               <img src="https://github.com/mdo.png" width="24" height="24" class="rounded-circle me-2">
               Siganushka
             </a>
             <ul class="dropdown-menu dropdown-menu-end position-absolute shadow">
               <li>
-                <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                <a href="#" class="dropdown-item d-flex align-items-center gap-2">
                   <i class="bi bi-plus-lg"></i> New project
                 </a>
               </li>
               <li>
-                <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                <a href="#" class="dropdown-item d-flex align-items-center gap-2">
                   <i class="bi bi-gear"></i> Settings
                 </a>
               </li>
               <li>
-                <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                <a href="#" class="dropdown-item d-flex align-items-center gap-2">
                   <i class="bi bi-person-lines-fill"></i> Profile
                 </a>
               </li>
               <li><hr class="dropdown-divider"></li>
               <li>
-                <a class="dropdown-item d-flex align-items-center gap-2" href="#">
+                <a href="#" class="dropdown-item d-flex align-items-center gap-2">
                   <i class="bi bi-box-arrow-right"></i> Sign out
                 </a>
               </li>
@@ -175,7 +175,7 @@
 
     <div class="d-flex flex-grow-1 overflow-hidden" style="padding-top: 3.5rem">
       <aside class="bg-dark-subtle position-relative shadow">
-        <div class="offcanvas-md offcanvas-start h-100 overflow-hidden overflow-y-auto" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-md offcanvas-start h-100 overflow-hidden overflow-y-auto" tabindex="-1" aria-labelledby="sidebarMenuLabel">
           <div class="offcanvas-body d-md-flex flex-column p-2">
             <ul class="list-unstyled m-0">
               <li>
@@ -185,11 +185,11 @@
                 </a>
               </li>
               <li>
-                <a role="button" tabindex="0" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" data-bs-target="#base-collapse" aria-expanded="false">
+                <a href="#collapse-base" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="false">
                   <i class="bi bi-gear-wide-connected"></i>
                   <span class="text-truncate">基础设置</span>
                 </a>
-                <div class="collapse" id="base-collapse">
+                <div id="collapse-base" class="collapse" data-bs-parent="aside .offcanvas-md">
                   <ul class="list-unstyled">
                     <li><a href="#" class="d-flex text-decoration-none rounded">商城横幅</a></li>
                     <li><a href="#" class="d-flex text-decoration-none rounded">分类设置</a></li>
@@ -199,11 +199,11 @@
                 </div>
               </li>
               <li>
-                <a role="button" tabindex="0" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" data-bs-target="#news-collapse" aria-expanded="false">
+                <a href="#collapse-news" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="false">
                   <i class="bi bi-speedometer"></i>
                   <span class="text-truncate">新闻管理</span>
                 </a>
-                <div class="collapse" id="news-collapse">
+                <div id="collapse-news" class="collapse" data-bs-parent="aside .offcanvas-md">
                   <ul class="list-unstyled">
                     <li><a href="#" class="d-flex text-decoration-none rounded">页面管理</a></li>
                     <li><a href="#" class="d-flex text-decoration-none rounded">新闻列表</a></li>
@@ -212,11 +212,25 @@
                 </div>
               </li>
               <li>
-                <a role="button" tabindex="0" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" data-bs-target="#merchant-collapse" aria-expanded="false">
+                <a href="#collapse-user" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="false">
+                  <i class="bi bi-person-circle"></i>
+                  <span class="text-truncate">用户管理</span>
+                </a>
+                <div id="collapse-user" class="collapse" data-bs-parent="aside .offcanvas-md">
+                  <ul class="list-unstyled">
+                    <li><a href="#" class="d-flex text-decoration-none rounded">用户管理</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">用户积分</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">优惠活动</a></li>
+                    <li><a href="#" class="d-flex text-decoration-none rounded">黑名单</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <a href="#collapse-merchant" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="false">
                   <i class="bi bi-archive-fill"></i>
                   <span class="text-truncate">商家管理</span>
                 </a>
-                <div class="collapse" id="merchant-collapse">
+                <div id="collapse-merchant" class="collapse" data-bs-parent="aside .offcanvas-md">
                   <ul class="list-unstyled">
                     <li><a href="#" class="d-flex text-decoration-none rounded">商家列表</a></li>
                     <li><a href="#" class="d-flex text-decoration-none rounded">用户管理</a></li>
@@ -226,11 +240,11 @@
                 </div>
               </li>
               <li>
-                <a role="button" tabindex="0" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" data-bs-target="#order-collapse" aria-expanded="false">
+                <a href="#collapse-order" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="false">
                   <i class="bi bi-cart-plus-fill"></i>
                   <span class="text-truncate">订单管理</span>
                 </a>
-                <div class="collapse" id="order-collapse">
+                <div id="collapse-order" class="collapse" data-bs-parent="aside .offcanvas-md">
                   <ul class="list-unstyled">
                     <li><a href="#" class="d-flex text-decoration-none rounded">订单列表</a></li>
                     <li><a href="#" class="d-flex text-decoration-none rounded">售后管理</a></li>
@@ -239,11 +253,11 @@
                 </div>
               </li>
               <li>
-                <a role="button" tabindex="0" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" data-bs-target="#system-collapse" aria-expanded="false">
+                <a href="#collapse-system" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="false">
                   <i class="bi bi-gear-fill"></i>
                   <span class="text-truncate">系统管理</span>
                 </a>
-                <div class="collapse" id="system-collapse">
+                <div id="collapse-system" class="collapse" data-bs-parent="aside .offcanvas-md">
                   <ul class="list-unstyled">
                     <li><a href="#" class="d-flex text-decoration-none rounded">管理员帐号</a></li>
                     <li><a href="#" class="d-flex text-decoration-none rounded">校色设置</a></li>
@@ -261,14 +275,12 @@
           </div>
         </div>
 
-        <button tabindex="0" class="btn btn-sm btn-pinned border-0 rounded-circle position-absolute top-50 start-100 translate-middle shadow-sm opacity-0">
+        <button class="btn btn-sm btn-pinned border-0 rounded-circle position-absolute top-50 start-100 translate-middle shadow-sm opacity-0">
           <i class="bi bi-pin-angle-fill"></i>
         </button>
       </aside>
 
       <main class="flex-grow-1 overflow-auto p-3">
-        <div class="bg-light" style="width: 2000px;height: 200px"></div>
-
         <h1>欢迎来到管理后台！</h1>
         <p>这里是你的主要内容区域。</p>
         <h1>欢迎来到管理后台！</h1>
@@ -330,8 +342,8 @@
       const pinned = sidebar.querySelector('.btn-pinned')
       pinned.addEventListener('click', () => sidebar.classList.toggle('pinned'))
 
-      const collapses = sidebar.querySelectorAll('.collapse')
-      collapses.forEach(item => bootstrap.Collapse.getOrCreateInstance(item).toggle())
+      // const collapses = sidebar.querySelectorAll('.collapse')
+      // collapses.forEach(item => bootstrap.Collapse.getOrCreateInstance(item).show())
     </script>
   </body>
 </html>
