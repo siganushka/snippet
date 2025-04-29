@@ -53,7 +53,8 @@
       }
 
       aside .offcanvas-md ul a:hover,
-      aside .offcanvas-md ul a:focus {
+      aside .offcanvas-md ul a:focus,
+      aside .offcanvas-md ul .current a {
         background-color: var(--bs-secondary-bg);
       }
 
@@ -185,14 +186,14 @@
                 </a>
               </li>
               <li>
-                <a href="#collapse-base" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="false">
+                <a href="#collapse-base" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="true">
                   <i class="bi bi-gear-wide-connected"></i>
                   <span class="text-truncate">基础设置</span>
                 </a>
-                <div id="collapse-base" class="collapse" data-bs-parent="aside .offcanvas-md">
+                <div id="collapse-base" class="collapse show" data-bs-parent="aside .offcanvas-md">
                   <ul class="list-unstyled">
                     <li><a href="#" class="d-flex text-decoration-none rounded">商城横幅</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">分类设置</a></li>
+                    <li class="current"><a href="#" class="d-flex text-decoration-none rounded">分类设置</a></li>
                     <li><a href="#" class="d-flex text-decoration-none rounded">栏目管理</a></li>
                     <li><a href="#" class="d-flex text-decoration-none rounded">国家管理</a></li>
                   </ul>
