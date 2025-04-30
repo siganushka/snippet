@@ -30,17 +30,32 @@
         transition: width .15s ease-in-out
       }
 
+      aside .offcanvas-md ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      aside .offcanvas-md ul:first-child {
+        padding-bottom: 2.5rem;
+      }
+
       aside .offcanvas-md ul a {
         color: var(--bs-body-color);
+        border-radius: var(--bs-border-radius);
+        display: flex;
+        align-items: center;
         padding: .5rem .75rem;
+        text-decoration: none;
         white-space: nowrap !important;
+        gap: .5rem;
       }
 
-      aside .offcanvas-md ul a + div ul a {
-        padding-left: 2.25rem;
-      }
+      /** level => 2/3 */
+      aside .offcanvas-md ul a + ul a { padding-left: 2.25rem; }
+      aside .offcanvas-md ul a + ul a + ul a { padding-left: 3.75rem; }
 
-      aside .offcanvas-md ul a[role=button]::after {
+      aside .offcanvas-md ul a[data-bs-toggle]::after {
         font-size: .875rem;
         font-family: bootstrap-icons;
         margin-left: auto;
@@ -48,7 +63,7 @@
         transition: transform .15s ease;
       }
 
-      aside .offcanvas-md ul a[role=button][aria-expanded=true]::after {
+      aside .offcanvas-md ul a[data-bs-toggle][aria-expanded=true]::after {
         transform: rotate(90deg);
       }
 
@@ -60,28 +75,26 @@
 
       /** Sidebar pinned button */
       aside .btn-pinned {
-        --bs-btn-bg: var(--bs-dark-bg-subtle);
-        --bs-btn-hover-bg: var(--bs-dark-border-subtle);
-        --bs-btn-active-bg: var(--bs-dark-border-subtle);
-        transition: opacity .15s ease-in-out, transform 0.15s ease-in-out;
+        --bs-btn-hover-bg: var(--bs-secondary-bg);
+        --bs-btn-active-bg: var(--bs-secondary-bg);
       }
 
-      aside:hover .btn-pinned {
-        opacity: 1 !important;
+      aside .btn-pinned .bi::before {
+        transition: transform 0.15s ease-in-out;
       }
 
       /** Sidebar pinned */
+      aside.pinned .btn-pinned .bi::before {
+        transform: rotate(-45deg) !important;
+      }
+
       aside.pinned:not(:hover) .offcanvas-md {
         width: 56px !important;
       }
 
-      aside.pinned .btn-pinned {
-        transform: translate(-50%, -50%) rotate(-45deg) !important;
-      }
- 
-      aside.pinned:not(:hover) .offcanvas-md ul a span,
-      aside.pinned:not(:hover) .offcanvas-md ul a + div,
-      aside.pinned:not(:hover) .offcanvas-md ul a[role=button]::after {
+      aside.pinned:not(:hover) .offcanvas-md ul a > span,
+      aside.pinned:not(:hover) .offcanvas-md ul a + ul,
+      aside.pinned:not(:hover) .offcanvas-md ul a[data-bs-toggle]::after {
         display: none;
       }
 
@@ -178,106 +191,109 @@
       <aside class="bg-dark-subtle position-relative shadow">
         <div class="offcanvas-md offcanvas-start h-100 overflow-hidden overflow-y-auto" tabindex="-1" aria-labelledby="sidebarMenuLabel">
           <div class="offcanvas-body d-md-flex flex-column p-2">
-            <ul class="list-unstyled m-0">
+            <ul id="collapse-root">
               <li>
-                <a href="#" class="d-flex align-items-center text-decoration-none gap-2 rounded">
-                  <i class="bi bi-house-door-fill"></i>
-                  <span class="text-truncate">Dashboard</span>
-                </a>
-              </li>
-              <li>
-                <a href="#collapse-base" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="true">
-                  <i class="bi bi-gear-wide-connected"></i>
-                  <span class="text-truncate">基础设置</span>
-                </a>
-                <div id="collapse-base" class="collapse show" data-bs-parent="aside .offcanvas-md">
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="d-flex text-decoration-none rounded">商城横幅</a></li>
-                    <li class="current"><a href="#" class="d-flex text-decoration-none rounded">分类设置</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">栏目管理</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">国家管理</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <a href="#collapse-news" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="false">
+                <a href="#collapse-dashboard" data-bs-toggle="collapse" aria-expanded="true">
                   <i class="bi bi-speedometer"></i>
-                  <span class="text-truncate">新闻管理</span>
+                  <span class="text-truncate">仪表盘</span>
                 </a>
-                <div id="collapse-news" class="collapse" data-bs-parent="aside .offcanvas-md">
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="d-flex text-decoration-none rounded">页面管理</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">新闻列表</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">公众号列表</a></li>
-                  </ul>
-                </div>
+                <ul id="collapse-dashboard" class="collapse show" data-bs-parent="#collapse-root">
+                  <li class="current"><a href="#">分析页</a></li>
+                  <li><a href="#">监控页</a></li>
+                  <li><a href="#">工作台</a></li>
+                </ul>
               </li>
               <li>
-                <a href="#collapse-user" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="false">
+                <a href="#collapse-form" data-bs-toggle="collapse" aria-expanded="false">
+                  <i class="bi bi-pencil-square"></i>
+                  <span class="text-truncate">表单页</span>
+                </a>
+                <ul id="collapse-form" class="collapse" data-bs-parent="#collapse-root">
+                  <li><a href="#">基础表单</a></li>
+                  <li><a href="#">分步表单</a></li>
+                  <li><a href="#">高级表单</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#collapse-list" data-bs-toggle="collapse" aria-expanded="false">
+                  <i class="bi bi-grid"></i>
+                  <span class="text-truncate">列表页</span>
+                </a>
+                <ul id="collapse-list" class="collapse" data-bs-parent="#collapse-root">
+                  <li>
+                    <a href="#collapse-list-search" data-bs-toggle="collapse" aria-expanded="false">
+                      搜索列表
+                    </a>
+                    <ul id="collapse-list-search" class="collapse" data-bs-parent="#collapse-list">
+                      <li><a href="#">搜索列表（文章）</a></li>
+                      <li><a href="#">搜索列表（项目）</a></li>
+                      <li><a href="#">搜索列表（应用）</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">查询表格</a></li>
+                  <li><a href="#">标准列表</a></li>
+                  <li><a href="#">卡片列表</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#collapse-detail" data-bs-toggle="collapse" aria-expanded="false">
+                  <i class="bi bi-card-list"></i>
+                  <span class="text-truncate">详情页</span>
+                </a>
+                <ul id="collapse-detail" class="collapse" data-bs-parent="#collapse-root">
+                  <li><a href="#">基础详情页</a></li>
+                  <li><a href="#">高级详情页</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#collapse-result" data-bs-toggle="collapse" aria-expanded="false">
+                  <i class="bi bi-check-circle"></i>
+                  <span class="text-truncate">结果页</span>
+                </a>
+                <ul id="collapse-result" class="collapse" data-bs-parent="#collapse-root">
+                  <li><a href="#">成功页</a></li>
+                  <li><a href="#">失败页</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#collapse-exception" data-bs-toggle="collapse" aria-expanded="false">
+                  <i class="bi bi-exclamation-circle"></i>
+                  <span class="text-truncate">异常页</span>
+                </a>
+                <ul id="collapse-exception" class="collapse" data-bs-parent="#collapse-root">
+                  <li><a href="#">403</a></li>
+                  <li><a href="#">404</a></li>
+                  <li><a href="#">500</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="#collapse-user" data-bs-toggle="collapse" aria-expanded="false">
                   <i class="bi bi-person-circle"></i>
-                  <span class="text-truncate">用户管理</span>
+                  <span class="text-truncate">个人页</span>
                 </a>
-                <div id="collapse-user" class="collapse" data-bs-parent="aside .offcanvas-md">
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="d-flex text-decoration-none rounded">用户管理</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">用户积分</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">优惠活动</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">黑名单</a></li>
-                  </ul>
-                </div>
+                <ul id="collapse-user" class="collapse" data-bs-parent="#collapse-root">
+                  <li><a href="#">个人中心</a></li>
+                  <li><a href="#">个人设置</a></li>
+                </ul>
               </li>
               <li>
-                <a href="#collapse-merchant" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="false">
-                  <i class="bi bi-archive-fill"></i>
-                  <span class="text-truncate">商家管理</span>
-                </a>
-                <div id="collapse-merchant" class="collapse" data-bs-parent="aside .offcanvas-md">
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="d-flex text-decoration-none rounded">商家列表</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">用户管理</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">采购订单</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">商品列表</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <a href="#collapse-order" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="false">
-                  <i class="bi bi-cart-plus-fill"></i>
-                  <span class="text-truncate">订单管理</span>
-                </a>
-                <div id="collapse-order" class="collapse" data-bs-parent="aside .offcanvas-md">
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="d-flex text-decoration-none rounded">订单列表</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">售后管理</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">用户投诉</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <a href="#collapse-system" role="button" class="d-flex align-items-center text-decoration-none gap-2 rounded" data-bs-toggle="collapse" aria-expanded="false">
-                  <i class="bi bi-gear-fill"></i>
-                  <span class="text-truncate">系统管理</span>
-                </a>
-                <div id="collapse-system" class="collapse" data-bs-parent="aside .offcanvas-md">
-                  <ul class="list-unstyled">
-                    <li><a href="#" class="d-flex text-decoration-none rounded">管理员帐号</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">校色设置</a></li>
-                    <li><a href="#" class="d-flex text-decoration-none rounded">菜单设置</a></li>
-                  </ul>
-                </div>
-              </li>
-              <li>
-                <a href="#" class="d-flex align-items-center text-decoration-none gap-2 rounded">
-                  <i class="bi bi-question-circle-fill"></i>
+                <a href="#">
+                  <i class="bi bi-question-circle"></i>
                   <span class="text-truncate">关于我们</span>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="bi bi-question-circle"></i>
+                  <span class="text-truncate">Test text truncate truncatetruncatetruncate</span>
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <button class="btn btn-sm btn-pinned border-0 rounded-circle position-absolute top-50 start-100 translate-middle shadow-sm opacity-0">
-          <i class="bi bi-pin-angle-fill"></i>
+        <button class="btn btn-pinned border-0 position-absolute bottom-0 end-0 text-dark-emphasis m-2 py-2">
+          <i class="bi bi-pin-angle"></i>
         </button>
       </aside>
 
@@ -344,7 +360,7 @@
       pinned.addEventListener('click', () => sidebar.classList.toggle('pinned'))
 
       // const collapses = sidebar.querySelectorAll('.collapse')
-      // collapses.forEach(item => bootstrap.Collapse.getOrCreateInstance(item).show())
+      // collapses.forEach(item => bootstrap.Collapse.getOrCreateInstance(item, { toggle: false }).show())
     </script>
   </body>
 </html>
