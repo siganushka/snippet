@@ -73,28 +73,28 @@
         background-color: var(--bs-secondary-bg);
       }
 
-      /** Sidebar pinned button */
-      aside .btn-pinned {
+      /** Sidebar collapsed button */
+      aside > button {
         --bs-btn-hover-bg: var(--bs-secondary-bg);
         --bs-btn-active-bg: var(--bs-secondary-bg);
       }
 
-      aside .btn-pinned .bi::before {
+      aside > button .bi::before {
         transition: transform 0.15s ease-in-out;
       }
 
-      /** Sidebar pinned */
-      aside.pinned .btn-pinned .bi::before {
-        transform: rotate(-45deg) !important;
+      /** Sidebar collapsed */
+      aside.collapsed > button .bi::before {
+        transform: rotate(-180deg) !important;
       }
 
-      aside.pinned:not(:hover) .offcanvas-md {
+      aside.collapsed:not(:hover) .offcanvas-md {
         width: 56px !important;
       }
 
-      aside.pinned:not(:hover) .offcanvas-md ul a > span,
-      aside.pinned:not(:hover) .offcanvas-md ul a + ul,
-      aside.pinned:not(:hover) .offcanvas-md ul a[data-bs-toggle]::after {
+      aside.collapsed:not(:hover) .offcanvas-md ul a > span,
+      aside.collapsed:not(:hover) .offcanvas-md ul a + ul,
+      aside.collapsed:not(:hover) .offcanvas-md ul a[data-bs-toggle]::after {
         display: none;
       }
 
@@ -292,8 +292,8 @@
           </div>
         </div>
 
-        <button class="btn btn-pinned border-0 position-absolute bottom-0 end-0 text-dark-emphasis m-2 py-2">
-          <i class="bi bi-pin-angle"></i>
+        <button class="btn border-0 position-absolute bottom-0 end-0 text-dark-emphasis m-2">
+          <i class="bi bi-text-indent-right"></i>
         </button>
       </aside>
 
@@ -358,8 +358,8 @@
     <script>
       const sidebar = document.querySelector('aside')
 
-      const pinned = sidebar.querySelector('.btn-pinned')
-      pinned.addEventListener('click', () => sidebar.classList.toggle('pinned'))
+      const collapsed = sidebar.querySelector(':scope > button')
+      collapsed.addEventListener('click', () => sidebar.classList.toggle('collapsed'))
 
       // const collapses = sidebar.querySelectorAll('.collapse')
       // collapses.forEach(item => bootstrap.Collapse.getOrCreateInstance(item, { toggle: false }).show())
